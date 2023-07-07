@@ -1,0 +1,138 @@
+%Packages
+\documentclass[10pt, a4paper]{article}
+\usepackage[top=2.54cm, bottom=2.54cm, left=2.54cm, right=2.54cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd, fancyhdr, color, comment, graphicx, environ}
+\usepackage{float}
+\usepackage[math-style=ISO]{unicode-math}
+\setmathfont{TeX Gyre Termes Math}
+\usepackage{lastpage}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\usepackage{fancyhdr}
+\usepackage{indentfirst}
+\usepackage{listings}
+\usepackage{sectsty}
+\usepackage{thmtools}
+\usepackage{shadethm}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage[spanish]{babel} % Ver https://www.overleaf.com/learn/latex/Spanish
+\usepackage[pdftex]{hyperref} % https://stackoverflow.com/a/3430025
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{lipsum} % Se puede comentar, está para pruebas de formato.
+
+%Environment setup
+\mdfsetup{skipabove=\topskip,skipbelow=\topskip}
+\mdfdefinestyle{theoremstyle}{%
+linecolor=black,linewidth=1pt,%
+frametitlerule=true,%
+frametitlebackgroundcolor=gray!20,
+innertopmargin=\topskip,
+}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}     
+\newcommand\asignatura{Asignatura}
+\newcommand\DocumentTitle{Ejemplo de título de documento}  
+\newcommand\mesyanno{XXXXXXXXX Cuatrimestre - Curso 20XX-YY}
+\newcommand\codigodoc{XXX.YYY.ZZZ.W.AAAAAAAAAA}
+\newcommand\autor{Pablo González Troyano}
+\newcommand\grado{Grado en Ciencia, Gestión e Ingeniería de Servicios}
+%
+\AtBeginDocument{
+  \hypersetup{
+    pdftitle = {\DocumentTitle},
+    pdfauthor = {\autor \  @URJC},
+    pdfsubject = {\asignatura \  en el \ \grado},
+    pdfkeywords = {\codigodoc ; \ \grado}
+  }
+}
+% Page setup
+\fancypagestyle{plain}{
+\headheight 25pt
+\lhead{\DocumentTitle}
+\rhead{\mesyanno}
+\lfoot{\autor}
+\fancyfoot[C]{}
+\rfoot{\small Página \thepage \ de \pageref{LastPage}}
+\headsep 2em
+}
+\pagestyle{fancy}
+\headheight 25pt
+\lhead{\DocumentTitle}
+\rhead{\mesyanno}
+\lfoot{\autor}
+\fancyfoot[C]{}
+\pagenumbering{arabic}
+\rfoot{\small Página \thepage \ de \pageref{LastPage}}
+\headsep 2em
+\renewcommand{\baselinestretch}{1.25}
+% Commands here
+\newenvironment{itemizedot}{\begin{itemize} \renewcommand{\labelitemi}{$\bullet$}\renewcommand{\labelitemii}{$\bullet$}\renewcommand{\labelitemiii}{$\bullet$}\renewcommand{\labelitemiv}{$\bullet$}}{\end{itemize}}
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\catcode`\>=\active \def>{
+\fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+
+% Begin now!
+\begin{document}
+\begin{titlepage}
+\includegraphics[width=0.4\textwidth]{URJC_logo.png}
+    \begin{center}
+        \vspace*{7cm}  
+        \Huge
+        \textbf{\DocumentTitle}
+        
+        \vspace{1cm}
+        
+        \huge{\asignatura}
+        \vspace{1.5cm}
+        \Large
+        \vfill    
+        \vspace{1cm}
+        \Large
+    \end{center}
+    {\parindent0pt \autor \\ \grado }
+    \begin{flushright}
+        \mesyanno
+    \end{flushright}
+\end{titlepage}
+% ToC
+\tableofcontents\newpage
+
+\newpage
+% ¡Comenzamos!
+
+\section{Sección 1}
+    \lipsum[1-25]
+
+
+% Fin!
+\end{document}
