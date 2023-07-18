@@ -23,6 +23,11 @@
 \usepackage{graphicx}
 \usepackage{multicol}
 \usepackage{lipsum} % Se puede comentar, está para pruebas de formato.
+\usepackage{csquotes} % https://www.overleaf.com/learn/latex/Typesetting_quotations#csquotes_package
+%Bibliografía
+\usepackage[style=apa,backend=biber,sortcites=true,sorting=nyt]{biblatex} % https://www.overleaf.com/learn/latex/Bibliography_management_in_LaTeX#The_bibliography_file
+\let \cite \parencite
+\addbibresource{bib.bib}
 
 %Environment setup
 \mdfsetup{skipabove=\topskip,skipbelow=\topskip}
@@ -132,6 +137,12 @@ innertopmargin=\topskip,
 
 \section{Sección 1}
     \lipsum[1-25]
+
+    Este párrafo finaliza con una referencia. \cite{rae1}
+
+\newpage
+\section{Bibliografía}
+\printbibliography[heading=none]
 
 
 % Fin!
