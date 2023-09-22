@@ -1,3 +1,7 @@
+%%%%
+% Get this template, and many others, online: https://github.com/gonzaleztroyano/urjc-latex-templates
+%%%%
+
 %Packages
 \documentclass[10pt, a4paper]{article}
 \usepackage[top=2.54cm, bottom=2.54cm, left=2.54cm, right=2.54cm]{geometry}
@@ -66,6 +70,7 @@ innertopmargin=\topskip,
 \newcommand\DocumentTitle{Ejemplo de título de documento}  
 \newcommand\mesyanno{XXXXXXXXX Cuatrimestre - Curso 20XX-YY}
 \newcommand\codigodoc{XXX.YYY.ZZZ.W.AAAAAAAAAA}
+\newcommand\codigoasig{CGIS.XXX}
 \newcommand\autor{Pablo González Troyano}
 \newcommand\grado{Grado en Ciencia, Gestión e Ingeniería de Servicios}
 %
@@ -80,7 +85,7 @@ innertopmargin=\topskip,
 % Page setup
 \fancypagestyle{plain}{
 \headheight 25pt
-\lhead{\DocumentTitle}
+\lhead{\codigoasig \ -  \DocumentTitle}
 \rhead{\mesyanno}
 \lfoot{\autor}
 \fancyfoot[C]{}
@@ -89,7 +94,7 @@ innertopmargin=\topskip,
 }
 \pagestyle{fancy}
 \headheight 25pt
-\lhead{\DocumentTitle}
+\lhead{\codigoasig \ -  \DocumentTitle}
 \rhead{\mesyanno}
 \lfoot{\autor}
 \fancyfoot[C]{}
