@@ -35,6 +35,7 @@ frametitlebackgroundcolor=gray!20,
 innertopmargin=\topskip,
 }
 \titleformat{\chapter}[display]{\normalfont\bfseries}{}{0pt}{\Huge} % https://tex.stackexchange.com/questions/120740/how-do-i-remove-chapter-n-from-the-chapter-titles-of-a-book & https://tex.stackexchange.com/questions/438420/page-numbering-resets-with-every-new-chapter
+\titlespacing*{\chapter}{0pt}{-20pt}{20pt} %https://latex.org/forum/viewtopic.php?t=2920
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -66,6 +67,7 @@ innertopmargin=\topskip,
 \newcommand\DocumentTitle{Ejemplo de título de documento}  
 \newcommand\mesyanno{XXXXXXXXX Cuatrimestre - Curso 20XX-YY}
 \newcommand\codigodoc{XXX.YYY.ZZZ.W.AAAAAAAAAA}
+\newcommand\codigoasig{CGIS.STAT}
 \newcommand\autor{Pablo González Troyano}
 \newcommand\grado{Grado en Ciencia, Gestión e Ingeniería de Servicios}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -80,18 +82,18 @@ innertopmargin=\topskip,
 % Page setup
 \fancypagestyle{plain}{
 \headheight 25pt
-\lhead{\DocumentTitle}
+\lhead{\DocumentTitle \  - \codigoasig}
 \rhead{\mesyanno}
-\lfoot{\autor}
+\lfoot{\autor\\ \href{https://cgis.gonzaleztroyano.es/?utm_source=cgis&utm_medium=template&utm_campaign=template}{cgis.gonzaleztroyano.es}}
 \fancyfoot[C]{}
 \rfoot{\small Página \thepage \ de \pageref{LastPage}}
 \headsep 2em
 }
 \pagestyle{fancy}
 \headheight 25pt
-\lhead{\DocumentTitle}
+\lhead{\DocumentTitle \  - \codigoasig}
 \rhead{\mesyanno}
-\lfoot{\autor}
+\lfoot{\autor\\ \href{https://cgis.gonzaleztroyano.es/?utm_source=cgis&utm_medium=template&utm_campaign=template}{cgis.gonzaleztroyano.es}}
 \fancyfoot[C]{}
 \pagenumbering{arabic}
 \rfoot{\small Página \thepage \ de \pageref{LastPage}}
@@ -136,8 +138,9 @@ innertopmargin=\topskip,
 \let\cleardoublepage\clearpage
 \tableofcontents\newpage
 
-\newpage
-% Comienza aquí
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\include{license.tex} % Cambiar URL!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Tema 1}
     \lipsum[1-5]
