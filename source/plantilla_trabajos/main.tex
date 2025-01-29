@@ -1,9 +1,5 @@
-%%%%
-% Get this template, and many others, online: https://github.com/gonzaleztroyano/urjc-latex-templates
-%%%%
-
 %Packages
-\documentclass[10pt, a4paper]{article}
+\documentclass[12pt, a4paper]{article}
 \usepackage[top=2.54cm, bottom=2.54cm, left=2.54cm, right=2.54cm]{geometry}
 \usepackage{amsmath,amsthm,amsfonts,amssymb,amscd, fancyhdr, color, comment, graphicx, environ}
 \usepackage{float}
@@ -23,15 +19,24 @@
 \usepackage{setspace}
 \usepackage{parskip}
 \usepackage[spanish]{babel} % Ver https://www.overleaf.com/learn/latex/Spanish
-\usepackage[pdftex]{hyperref} % https://stackoverflow.com/a/3430025
+\usepackage[pdftex,colorlinks=false,hidelinks]{hyperref} % https://stackoverflow.com/a/3430025 https://latex.org/forum/viewtopic.php?t=16708
 \usepackage{graphicx}
 \usepackage{multicol}
+\setlength{\columnsep}{2em} % https://www.overleaf.com/learn/latex/Multiple_columns
 \usepackage{lipsum} % Se puede comentar, está para pruebas de formato.
 \usepackage{csquotes} % https://www.overleaf.com/learn/latex/Typesetting_quotations#csquotes_package
 %Bibliografía
 \usepackage[style=apa,backend=biber,sortcites=true,sorting=nyt]{biblatex} % https://www.overleaf.com/learn/latex/Bibliography_management_in_LaTeX#The_bibliography_file
 \let \cite \parencite
 \addbibresource{bib.bib}
+
+\usepackage{caption} %https://tex.stackexchange.com/questions/117531/styling-a-lstlisting-caption-using-caption-package
+
+%Tablas chulas
+\usepackage{multirow}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+\renewcommand{\tablename}{Tabla}
 
 %Environment setup
 \mdfsetup{skipabove=\topskip,skipbelow=\topskip}
@@ -47,21 +52,22 @@ innertopmargin=\topskip,
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 \lstdefinestyle{mystyle}{
-    backgroundcolor=\color{backcolour},   
+    backgroundcolor=\color{backcolour},
     commentstyle=\color{codegreen},
     keywordstyle=\color{magenta},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
     basicstyle=\ttfamily\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
     showstringspaces=false,
-    showtabs=false,                  
+    showtabs=false,          
     tabsize=2
 }
 \lstset{style=mystyle}
@@ -70,7 +76,7 @@ innertopmargin=\topskip,
 \newcommand\DocumentTitle{Ejemplo de título de documento}  
 \newcommand\mesyanno{XXXXXXXXX Cuatrimestre - Curso 20XX-YY}
 \newcommand\codigodoc{XXX.YYY.ZZZ.W.AAAAAAAAAA}
-\newcommand\codigoasig{CGIS.XXX}
+\newcommand\codigoasig{CGIS.STAT}
 \newcommand\autor{Pablo González Troyano}
 \newcommand\grado{Grado en Ciencia, Gestión e Ingeniería de Servicios}
 %
@@ -79,7 +85,7 @@ innertopmargin=\topskip,
     pdftitle = {\DocumentTitle},
     pdfauthor = {\autor \  @URJC},
     pdfsubject = {\asignatura \  en el \ \grado},
-    pdfkeywords = {\codigodoc ; \ \grado}
+    pdfkeywords = {\codigodoc ; \ \asignatura ; \ \grado}
   }
 }
 % Page setup
@@ -135,7 +141,10 @@ innertopmargin=\topskip,
     \end{flushright}
 \end{titlepage}
 % ToC
-\tableofcontents\newpage
+\tableofcontents
+% \listoffigures
+% \listoftables
+\newpage
 
 \newpage
 % ¡Comenzamos!
